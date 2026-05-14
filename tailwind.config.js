@@ -1,0 +1,26 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        red: {
+          brand: "#E40101",
+        },
+        grey: {
+          dark: "#272727",
+        },
+      },
+      fontFamily: {
+        display: ["var(--font-hk-modular)", "sans-serif"],
+        body: ["var(--font-work-sans)", "sans-serif"],
+        mono: ["var(--font-work-sans)", "sans-serif"],
+      },
+    },
+  },
+  plugins: [],
+};

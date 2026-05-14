@@ -1,0 +1,446 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── HK Modular is loaded via Fontshare CDN in app/layout.tsx ─────────────── */
+/* To self-host: add font files to public/fonts/ and re-add @font-face blocks   */
+
+:root {
+  --red: #e40101;
+  --black: #000000;
+  --white: #ffffff;
+  --dark-grey: #272727;
+  --font-hk-modular: "HK Modular", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: var(--font-work-sans);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ─── Custom Cursor ─────────────────────────────────── */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition:
+    transform 0.1s ease,
+    width 0.3s ease,
+    height 0.3s ease,
+    background 0.3s ease;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(228, 1, 1, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition:
+    transform 0.12s ease,
+    width 0.3s ease,
+    height 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.cursor-ring.hovered {
+  width: 64px;
+  height: 64px;
+  background: rgba(228, 1, 1, 0.1);
+  border-color: var(--red);
+}
+
+/* ─── Noise Texture Overlay ─────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 1000;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 2px;
+}
+
+/* ─── Selection ─────────────────────────────────────── */
+::selection {
+  background: var(--red);
+  color: #fff;
+}
+
+/* ─── Animations ────────────────────────────────────── */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ─── Utility ───────────────────────────────────────── */
+.clip-text {
+  background: linear-gradient(135deg, #fff 0%, #888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.red-glow {
+  box-shadow: 0 0 40px rgba(228, 1, 1, 0.3);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  color: transparent;
+}
+
+.grid-line {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* ─── Horizontal Scroll ─────────────────────────────── */
+.horizontal-scroll-container {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Nav Link Hover ────────────────────────────────── */
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--red);
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ─── Button Styles ─────────────────────────────────── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: var(--red);
+  color: white;
+  padding: 14px 28px;
+  font-family: var(--font-hk-modular);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  cursor: none;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-outline {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  color: white;
+  padding: 14px 28px;
+  font-family: var(--font-hk-modular);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: none;
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-outline:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+/* ─── Section Heading ───────────────────────────────── */
+.section-label {
+  font-family: var(--font-work-sans);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+/* ─── Service Card ──────────────────────────────────── */
+.service-card {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s ease;
+}
+
+.service-card:hover {
+  border-top-color: var(--red);
+}
+
+.service-number {
+  font-family: var(--font-work-sans);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.2em;
+}
+
+/* ─── Work Card ─────────────────────────────────────── */
+.work-card {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.work-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.work-card:hover .overlay {
+  opacity: 1;
+}
+
+.work-card .work-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px;
+  transform: translateY(20px);
+  opacity: 0;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.work-card:hover .work-info {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ─── Magnetic Button Wrapper ───────────────────────── */
+.magnetic-wrapper {
+  display: inline-block;
+}
+
+/* ─── Red Line Divider ──────────────────────────────── */
+.red-line {
+  width: 40px;
+  height: 2px;
+  background: var(--red);
+}
+
+/* ─── Footer ────────────────────────────────────────── */
+.footer-link {
+  font-family: var(--font-work-sans);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--red);
+}
+
+/* ─── Contact Form ──────────────────────────────────── */
+.form-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: var(--font-work-sans);
+  font-size: 16px;
+  padding: 16px 0;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.form-input:focus {
+  border-bottom-color: var(--red);
+}
+
+/* ─── Stats ─────────────────────────────────────────── */
+.stat-number {
+  font-family: var(--font-hk-modular);
+  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--red);
+}
+
+/* ─── Hero ──────────────────────────────────────────── */
+.hero-title {
+  font-family: var(--font-hk-modular);
+  font-weight: 800;
+  font-size: clamp(48px, 13vw, 180px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.hero-sub {
+  font-family: var(--font-hk-modular);
+  font-weight: 400;
+  font-size: clamp(14px, 1.5vw, 18px);
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ─── Process ───────────────────────────────────────── */
+.process-step {
+  position: relative;
+  padding-left: 80px;
+}
+
+.process-step::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: -40px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--red), transparent);
+}
+
+.process-step:last-child::before {
+  display: none;
+}
+
+/* ─── Responsive Helpers ────────────────────────────── */
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+  .btn-primary,
+  .btn-outline {
+    cursor: auto;
+    padding: 14px 24px;
+    font-size: 11px;
+  }
+}
