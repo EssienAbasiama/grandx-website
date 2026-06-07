@@ -14,13 +14,15 @@ const workSans = Work_Sans({
 export const metadata: Metadata = {
   title: "GRANDX — Design & Technology Studio",
   description:
-    "GRANDX is a bold design and technology studio specializing in Brand Identity, Product Design, Web Development, and Mobile App Design.",
+    "GRANDX is a premium design and technology studio specializing in Web Development, Ecommerce Web Design, SEO, Mobile App Design, Social Media Management, and AI Automation.",
   keywords: [
-    "brand identity",
-    "product design",
-    "web design",
+    "web development",
+    "ecommerce website design",
+    "SEO optimization",
     "mobile app design",
-    "design agency",
+    "social media management",
+    "AI automation",
+    "digital agency",
     "GRANDX",
   ],
   openGraph: {

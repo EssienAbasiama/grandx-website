@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{\"app\\\\page.tsx -> lenis\":{\"id\":\"app\\\\page.tsx -> lenis\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_lenis_dist_lenis_mjs.js\"]}}"
+self.__REACT_LOADABLE_MANIFEST='{"app/page.tsx -> lenis":{"id":4108,"files":["static/chunks/108.178b341a7c187227.js"]}}';

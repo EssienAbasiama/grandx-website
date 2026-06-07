@@ -6,39 +6,10 @@ import { motion, useInView } from "framer-motion";
 const services = [
   {
     number: "01",
-    title: "Brand Identity",
-    description:
-      "We craft bold, distinctive brand identities that communicate your vision, establish trust, and create an unmistakable presence across every touchpoint.",
-    tags: ["Logo Design", "Visual Language", "Brand Strategy", "Guidelines"],
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <circle cx="24" cy="24" r="20" stroke="#E40101" strokeWidth="1" />
-        <path d="M24 10 L24 24 L34 34" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-        <circle cx="24" cy="24" r="3" fill="#E40101" />
-      </svg>
-    ),
-  },
-  {
-    number: "02",
-    title: "Product Design",
-    description:
-      "From concept to pixel-perfect prototypes, we design intuitive, beautiful digital products that users love and businesses scale with.",
-    tags: ["UX Research", "Prototyping", "Design Systems", "User Testing"],
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <rect x="8" y="8" width="32" height="32" rx="4" stroke="#E40101" strokeWidth="1" />
-        <rect x="14" y="14" width="20" height="12" rx="2" fill="#E40101" fillOpacity="0.15" stroke="#E40101" strokeWidth="0.5" />
-        <line x1="14" y1="32" x2="22" y2="32" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-        <line x1="14" y1="36" x2="28" y2="36" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    number: "03",
     title: "Web Design & Development",
     description:
-      "High-performance, visually extraordinary websites and web apps. We merge design craft with engineering excellence to deliver experiences that perform.",
-    tags: ["Next.js", "React", "Motion", "CMS Integration", "SEO"],
+      "High-performance, visually extraordinary websites and web apps. We merge design craft with engineering excellence to deliver modern, lightning-fast digital experiences.",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "CMS Integration"],
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <rect x="6" y="10" width="36" height="26" rx="3" stroke="#E40101" strokeWidth="1" />
@@ -53,11 +24,40 @@ const services = [
     ),
   },
   {
+    number: "02",
+    title: "Ecommerce Web Design",
+    description:
+      "Stunning, secure, and conversion-optimized online stores. From custom checkouts to high-performance catalogs, we build digital storefronts that turn visitors into loyal buyers.",
+    tags: ["WooCommerce", "Cart Optimization", "Payment Gateways", "Scalable Catalog"],
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <path d="M6 10 h6 l6 20 h18 l5 -14 H16" stroke="#E40101" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="20" cy="36" r="2.5" fill="white" stroke="#E40101" strokeWidth="1" />
+        <circle cx="32" cy="36" r="2.5" fill="white" stroke="#E40101" strokeWidth="1" />
+        <path d="M22 17 h8 M26 13 v8" stroke="white" strokeWidth="1.2" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    number: "03",
+    title: "SEO (Search Engine Optimization)",
+    description:
+      "Strategic optimization to shoot your digital platforms to the top of Google and other search engines. We target high-intent keywords to capture organic traffic and build search authority.",
+    tags: ["Search Audits", "Keyword Strategy", "On-Page SEO", "Link Profile", "Rankings"],
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <path d="M8 40 h32 M12 34 l8 -10 l8 6 l10 -14" stroke="#E40101" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="38" cy="16" r="4" fill="white" stroke="#E40101" strokeWidth="1" />
+        <line x1="38" y1="20" x2="42" y2="24" stroke="#E40101" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
     number: "04",
     title: "Mobile App Design & Development",
     description:
-      "We design and build native and cross-platform mobile apps that feel premium, perform flawlessly, and keep users engaged from first launch.",
-    tags: ["iOS", "Android", "React Native", "Flutter", "App Store"],
+      "Premium native and cross-platform mobile apps for iOS and Android. Seamless performance, elegant interfaces, and custom capabilities that keep users engaged from launch.",
+    tags: ["iOS App", "Android App", "React Native", "Flutter", "App Store Release"],
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <rect x="14" y="6" width="20" height="36" rx="4" stroke="#E40101" strokeWidth="1" />
@@ -66,6 +66,38 @@ const services = [
         <circle cx="24" cy="41" r="1.5" fill="#E40101" />
         <rect x="19" y="16" width="10" height="16" rx="2" fill="#E40101" fillOpacity="0.1" stroke="#E40101" strokeWidth="0.5" />
         <path d="M21 24 L24 21 L27 24 L24 27 Z" fill="#E40101" />
+      </svg>
+    ),
+  },
+  {
+    number: "05",
+    title: "Social Media Management",
+    description:
+      "Strategic content curation, social growth, and community management. We establish a premium, cohesive voice for your brand across major channels to drive genuine engagement.",
+    tags: ["Content Strategy", "Creative Design", "Growth Auditing", "Analytics"],
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <circle cx="34" cy="12" r="4" stroke="#E40101" strokeWidth="1.2" />
+        <circle cx="14" cy="24" r="4" stroke="white" strokeWidth="1.2" />
+        <circle cx="34" cy="36" r="4" stroke="#E40101" strokeWidth="1.2" />
+        <line x1="17.5" y1="22.5" x2="30.5" y2="13.5" stroke="white" strokeWidth="1.2" />
+        <line x1="17.5" y1="25.5" x2="30.5" y2="34.5" stroke="white" strokeWidth="1.2" />
+        <circle cx="14" cy="24" r="2" fill="#E40101" />
+      </svg>
+    ),
+  },
+  {
+    number: "06",
+    title: "AI Automation",
+    description:
+      "Integrate cutting-edge AI features directly into your business. From custom AI agents and workflow automation to LLM integrations, we build systems that scale operations and productivity.",
+    tags: ["AI Agents", "API Integration", "Workflow Flows", "Custom LLMs", "Bots"],
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <rect x="12" y="12" width="24" height="24" rx="3" stroke="#E40101" strokeWidth="1.2" />
+        <rect x="18" y="18" width="12" height="12" rx="1" fill="#E40101" fillOpacity="0.2" stroke="white" strokeWidth="1" />
+        <path d="M6 18 h6 M6 24 h6 M6 30 h6 M36 18 h6 M36 24 h6 M36 30 h6 M18 6 v6 M24 6 v6 M30 6 v6 M18 36 v6 M24 36 v6 M30 36 v6" stroke="white" strokeWidth="1" strokeLinecap="round" />
+        <circle cx="24" cy="24" r="2.5" fill="#E40101" />
       </svg>
     ),
   },

@@ -152,7 +152,7 @@ export default function Hero() {
             transition={{ delay: 1.2, duration: 0.7 }}
             className="font-body text-white/40 text-sm sm:text-base max-w-xs leading-relaxed"
           >
-            Identity. Product. Web. Mobile. We design and build digital experiences that are
+            Web. Ecommerce. Apps. AI. We design and build digital experiences that are
             impossible to forget.
           </motion.p>
 

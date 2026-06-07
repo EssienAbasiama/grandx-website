@@ -85,10 +85,12 @@ grandx-website/
 
 ## 📞 Services
 
-1. Brand Identity
-2. Product Design
-3. Web Design & Development
+1. Web Design & Development
+2. Ecommerce Web Design
+3. SEO (Search Engine Optimization)
 4. Mobile App Design & Development
+5. Social Media Management
+6. AI Automation
 
 ---
 

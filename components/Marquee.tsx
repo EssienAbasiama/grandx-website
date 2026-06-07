@@ -1,21 +1,19 @@
 "use client";
 
 const items = [
-  "Brand Identity",
-  "★",
-  "Product Design",
-  "★",
   "Web Development",
+  "★",
+  "Ecommerce Web Design",
+  "★",
+  "SEO Optimization",
   "★",
   "Mobile Apps",
   "★",
-  "UI/UX Design",
+  "Social Media",
   "★",
-  "Visual Identity",
+  "AI Automation",
   "★",
-  "Design Systems",
-  "★",
-  "Motion Design",
+  "Workflow Automation",
   "★",
 ];
 

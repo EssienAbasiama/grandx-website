@@ -8,6 +8,7 @@ import Marquee from "@/components/Marquee";
 import Services from "@/components/Services";
 import Work from "@/components/Work";
 import Stats from "@/components/Stats";
+import Pricing from "@/components/Pricing";
 import Process from "@/components/Process";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -49,6 +50,7 @@ export default function Home() {
       <Services />
       <Work />
       <Stats />
+      <Pricing />
       <Process />
       <Contact />
       <Footer />

@@ -4,10 +4,12 @@ import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 
 const services = [
-  "Brand Identity",
-  "Product Design",
   "Web Design & Dev",
+  "Ecommerce Web Design",
+  "SEO",
   "Mobile App",
+  "Social Media",
+  "AI Automation",
   "Full Package",
 ];
 
