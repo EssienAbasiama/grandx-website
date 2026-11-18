@@ -189,20 +189,26 @@ export default function Contact() {
               Or reach us directly
             </p>
             <a
-              href="mailto:hello@grandx.studio"
+              href="mailto:thegrandxstudios@gmail.com"
               className="font-display font-bold text-2xl text-white hover:text-[#E40101] transition-colors duration-300"
             >
-              hello@grandx.studio
+              thegrandxstudios@gmail.com
             </a>
           </div>
           <div className="flex items-center gap-6">
-            {["Twitter", "Instagram", "LinkedIn", "Dribbble"].map((s) => (
+            {[
+              { name: "Twitter", href: "https://twitter.com/grandxstudios" },
+              { name: "Instagram", href: "https://www.instagram.com/grandxstudios/" },
+              { name: "LinkedIn", href: "#" },
+              { name: "Dribbble", href: "#" },
+            ].map((s) => (
               <a
-                key={s}
-                href="#"
+                key={s.name}
+                href={s.href}
+                {...(s.href !== "#" && { target: "_blank", rel: "noopener noreferrer" })}
                 className="footer-link font-body text-[10px] tracking-widest uppercase"
               >
-                {s}
+                {s.name}
               </a>
             ))}
           </div>

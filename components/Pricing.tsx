@@ -455,7 +455,7 @@ export default function Pricing() {
         <p className="font-body text-xs text-white/30">
           Looking for a custom enterprise setup?{" "}
           <a
-            href="mailto:hello@grandx.studio"
+            href="mailto:thegrandxstudios@gmail.com"
             className="text-[#E40101] hover:underline"
           >
             Reach out to our engineering team

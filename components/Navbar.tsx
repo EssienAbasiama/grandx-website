@@ -90,7 +90,7 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden md:flex items-center gap-6">
           <a
-            href="mailto:hello@grandx.studio"
+            href="mailto:thegrandxstudios@gmail.com"
             className="btn-outline text-xs"
             style={{ padding: "10px 24px" }}
           >
@@ -148,10 +148,10 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                href="mailto:hello@grandx.studio"
+                href="mailto:thegrandxstudios@gmail.com"
                 className="mt-8 text-[#E40101] font-body text-sm tracking-widest uppercase"
               >
-                hello@grandx.studio
+                thegrandxstudios@gmail.com
               </motion.a>
             </nav>
           </motion.div>
