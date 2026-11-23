@@ -12,7 +12,6 @@ interface PricingPlan {
   description: string;
   features: string[];
   ctaLabel: string;
-  whatsappMsg: string;
 }
 
 const websitePlans: PricingPlan[] = [
@@ -32,8 +31,7 @@ const websitePlans: PricingPlan[] = [
       "Security Shield & SSL Certificate"
     ],
     popular: false,
-    ctaLabel: "Get Corporate Plan",
-    whatsappMsg: "Hi GrandX, I'd like to order the Corporate Web Design package."
+    ctaLabel: "Get Corporate Plan"
   },
   {
     name: "E-Commerce",
@@ -52,8 +50,7 @@ const websitePlans: PricingPlan[] = [
       "Inventory & Order Management"
     ],
     popular: true,
-    ctaLabel: "Get E-Commerce Plan",
-    whatsappMsg: "Hi GrandX, I'd like to order the E-Commerce Web Design package."
+    ctaLabel: "Get E-Commerce Plan"
   },
   {
     name: "Custom Web / App",
@@ -71,8 +68,7 @@ const websitePlans: PricingPlan[] = [
       "Social Media & Third-party Integrations"
     ],
     popular: false,
-    ctaLabel: "Request Custom Quote",
-    whatsappMsg: "Hi GrandX, I'd like to discuss a Custom Web/App project."
+    ctaLabel: "Request Custom Quote"
   }
 ];
 
@@ -93,8 +89,7 @@ const seoPlans: PricingPlan[] = [
       "Detailed Monthly Performance Report"
     ],
     popular: false,
-    ctaLabel: "Start SEO Starter",
-    whatsappMsg: "Hi GrandX, I'd like to order the Starter SEO package."
+    ctaLabel: "Start SEO Starter"
   },
   {
     name: "Growth SEO",
@@ -113,8 +108,7 @@ const seoPlans: PricingPlan[] = [
       "Detailed Monthly Performance Report"
     ],
     popular: true,
-    ctaLabel: "Start SEO Growth",
-    whatsappMsg: "Hi GrandX, I'd like to order the Growth SEO package."
+    ctaLabel: "Start SEO Growth"
   },
   {
     name: "Custom SEO",
@@ -133,8 +127,7 @@ const seoPlans: PricingPlan[] = [
       "Bi-Weekly Executive Progress Calls"
     ],
     popular: false,
-    ctaLabel: "Contact for SEO Plan",
-    whatsappMsg: "Hi GrandX, I'd like to discuss a Custom SEO strategy."
+    ctaLabel: "Contact for SEO Plan"
   }
 ];
 
@@ -155,8 +148,7 @@ const socialPlans: PricingPlan[] = [
       "Monthly Analytics Report"
     ],
     popular: false,
-    ctaLabel: "Start Social Starter",
-    whatsappMsg: "Hi GrandX, I'd like to order the Starter Social Media package."
+    ctaLabel: "Start Social Starter"
   },
   {
     name: "Professional SM",
@@ -175,8 +167,7 @@ const socialPlans: PricingPlan[] = [
       "Detailed Growth Analytics & Insights"
     ],
     popular: true,
-    ctaLabel: "Start Social Professional",
-    whatsappMsg: "Hi GrandX, I'd like to order the Professional Social Media package."
+    ctaLabel: "Start Social Professional"
   },
   {
     name: "Enterprise SM",
@@ -198,8 +189,7 @@ const socialPlans: PricingPlan[] = [
       "Competitor Analysis & Monthly Auditing"
     ],
     popular: false,
-    ctaLabel: "Start Social Enterprise",
-    whatsappMsg: "Hi GrandX, I'd like to order the Enterprise Social Media package."
+    ctaLabel: "Start Social Enterprise"
   }
 ];
 
@@ -217,8 +207,7 @@ const aiPlans: PricingPlan[] = [
       "Employee Onboarding Guides"
     ],
     popular: false,
-    ctaLabel: "Get Automation Quote",
-    whatsappMsg: "Hi GrandX, I'd like to inquire about the Starter AI Automation package."
+    ctaLabel: "Get Automation Quote"
   },
   {
     name: "Enterprise Automation",
@@ -233,8 +222,7 @@ const aiPlans: PricingPlan[] = [
       "Dedicated Tech Team Audit & Support"
     ],
     popular: true,
-    ctaLabel: "Get Enterprise Quote",
-    whatsappMsg: "Hi GrandX, I'd like to inquire about the Enterprise AI Automation package."
+    ctaLabel: "Get Enterprise Quote"
   },
   {
     name: "Mobile App Design",
@@ -250,8 +238,7 @@ const aiPlans: PricingPlan[] = [
       "Complete Admin Portal Configuration"
     ],
     popular: false,
-    ctaLabel: "Get Mobile App Quote",
-    whatsappMsg: "Hi GrandX, I'd like to discuss Mobile App Design and Development."
+    ctaLabel: "Get Mobile App Quote"
   }
 ];
 
@@ -273,12 +260,6 @@ export default function Pricing() {
     if (value === "Custom") return "Custom Quote";
     const symbol = currency === "NGN" ? "₦" : "$";
     return `${symbol}${value.toLocaleString()}`;
-  };
-
-  const getWhatsAppLink = (plan: PricingPlan) => {
-    const base = "https://wa.me/2347075876888";
-    const text = encodeURIComponent(plan.whatsappMsg);
-    return `${base}?text=${text}`;
   };
 
   return (
@@ -433,9 +414,7 @@ export default function Pricing() {
 
                 {/* Booking Button */}
                 <a
-                  href={getWhatsAppLink(plan)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#contact"
                   className={`block w-full text-center py-4 rounded-xl font-body text-xs tracking-widest uppercase font-bold transition-all duration-300 ${
                     plan.popular
                       ? "bg-[#E40101] hover:bg-[#c30101] text-white"
@@ -455,7 +434,7 @@ export default function Pricing() {
         <p className="font-body text-xs text-white/30">
           Looking for a custom enterprise setup?{" "}
           <a
-            href="mailto:thegrandxstudios@gmail.com"
+            href="#contact"
             className="text-[#E40101] hover:underline"
           >
             Reach out to our engineering team

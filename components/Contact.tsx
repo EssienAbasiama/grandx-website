@@ -13,6 +13,8 @@ const services = [
   "Full Package",
 ];
 
+const WEB3FORMS_KEY = "6c231c0c-c583-46da-baba-d8d75a98d97a";
+
 export default function Contact() {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
@@ -25,9 +27,35 @@ export default function Contact() {
       prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]
     );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError("");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New enquiry from ${form.name}`,
+          from_name: "GrandX Website",
+          name: form.name,
+          email: form.email,
+          interested_in: selected.join(", ") || "n/a",
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error();
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again in a moment.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -144,10 +172,15 @@ export default function Contact() {
                     We typically respond within 24 hours. All projects start with a free
                     30-minute discovery call.
                   </p>
-                  <button type="submit" className="btn-primary">
-                    Send Message →
+                  <button type="submit" className="btn-primary" disabled={sending}>
+                    {sending ? "Sending..." : "Send Message →"}
                   </button>
                 </div>
+                {error && (
+                  <p className="font-body text-xs" style={{ color: "#E40101" }} role="alert">
+                    {error}
+                  </p>
+                )}
               </motion.form>
             </motion.div>
           ) : (
@@ -199,8 +232,7 @@ export default function Contact() {
             {[
               { name: "Twitter", href: "https://twitter.com/grandxstudios" },
               { name: "Instagram", href: "https://www.instagram.com/grandxstudios/" },
-              { name: "LinkedIn", href: "#" },
-              { name: "Dribbble", href: "#" },
+              { name: "TikTok", href: "https://www.tiktok.com/@grandxstudios" },
             ].map((s) => (
               <a
                 key={s.name}
