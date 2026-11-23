@@ -222,10 +222,10 @@ export default function Contact() {
               Or reach us directly
             </p>
             <a
-              href="mailto:thegrandxstudios@gmail.com"
+              href="#contact"
               className="font-display font-bold text-2xl text-white hover:text-[#E40101] transition-colors duration-300"
             >
-              thegrandxstudios@gmail.com
+              Send us a message
             </a>
           </div>
           <div className="flex items-center gap-6">
